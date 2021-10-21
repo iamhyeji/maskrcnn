@@ -3,6 +3,7 @@ import sys
 import random
 import math
 import numpy as np
+import collections
 import skimage.io
 import matplotlib
 import matplotlib.pyplot as plt
@@ -60,5 +61,6 @@ results = model.detect([image], verbose=1)
 
 # Visualize results
 r = results[0]
+print(collections.Counter(r['class_ids'])[1])
 visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], 
                             class_names, r['scores'])
